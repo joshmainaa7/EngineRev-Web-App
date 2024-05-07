@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>EngineRevMessageUs</title>
+  <link rel="stylesheet" href="messageus.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+<body>
+  <!-- Firebase SDK for Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js" type="module"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js" type="module"></script>
+
+  <nav>
+    <div class="logo">
+      EngineRev | SEND US A MESSAGE 
+    </div>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">EXPLORE</a>
+                <div class="dropdown-content">
+                    <a href="porsche.html">Porsche</a>
+                    <a href="bmw.html">BMW</a>
+                    <a href="mclaren.html">Mclaren</a>
+                    <a href="mercedesbenz.html">Mercedes-Benz</a>
+                    <a href="rollsroyce.html">Rolls-Royce</a>
+                </div>
+            </li>
+            <li><a href="contactus.html">CONTACT US</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
+
+    </ul>
+  </nav>
+  <div class="additional-text">
+    <h1  id="headingAnimation">Have a question or suggestion?</h1>
+    <p id="paragraphAnimation">Send us a message  and we'll get back to you soon.</p>
+  </div>
+  <div class="overlay"></div>
+  <div class="form-container">
+    <form id="messageForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message"  name="message" required></textarea>
+
+      <input type="submit" id="sendMessage" class="submit-btn">
+    </form>
+  </div>
+  <footer>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-linkedin"></i>
+  </footer>
+
+  <!-- Copyrights Footer -->
+  <div class="copyright-footer">
+    &copy; 2024 EngineRev. All rights reserved.
+  </div>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getDatabase, ref,push, set } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyC46ZySCpqyQyr0DOiIj77S2aXBDZjIK7U",
+      authDomain: "messagesdata-edd50.firebaseapp.com",
+      projectId: "messagesdata-edd50",
+      storageBucket: "messagesdata-edd50.appspot.com",
+      messagingSenderId: "732304249322",
+      appId: "1:732304249322:web:8a3e20ffc05cbdb5c0e293"
+    };
+  
+    // Initialize Firebase
+   // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+   const db = getDatabase(app);
+   const messagesRef = ref(db, 'messages'); // Firebase Realtime Database reference
+
+    // Function to handle form submission
+    document.getElementById('messageForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var message = document.getElementById('message').value;
+
+      // Save the message data to Firebase database
+      push(messagesRef, {
+        name: name,
+        email: email,
+        message: message
+      })
+      .then(() => {
+        alert('Message Sent Successfully');
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('message').value = '';
+      })
+      .catch(error => {
+        alert('Error occurred while sending message');
+        console.error(error);
+      });
+    });
+  </script>
+</body>
+
+</html>

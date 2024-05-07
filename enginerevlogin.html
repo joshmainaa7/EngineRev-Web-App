@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA Compatible" content="IE=edge">
+    <title>EngineRevSignUp</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+    
+</head>
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js" type="module"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js" type="module"></script>
+    <nav>
+        <div class="logo">
+            EngineRev | LOGIN
+        </div>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">EXPLORE</a>
+                <div class="dropdown-content">
+                    <a href="porsche.html">Porsche</a>
+                    <a href="bmw.html">BMW</a>
+                    <a href="mclaren.html">Mclaren</a>
+                    <a href="mercedesbenz.html">Mercedes-Benz</a>
+                    <a href="rollsroyce.html">Rolls-Royce</a>
+                </div>
+            </li>
+            <li><a href="contactus.html">CONTACT US</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
+            
+        </ul>
+    </nav>
+    <div class="additional-text">
+        <h1>Welcome Back </h1>
+        <p>Log In to check your offers</p>
+      </div>
+    <div class="overlay"></div>
+    <div class="form-container">
+        <form id="messageForm">
+          
+
+          <label for="firstname">Name:</label>
+          <input type="text" id="name" name="name" required>
+    
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+    
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required>
+
+          
+            
+            <input type="submit" id="signUp" class="submit-btn">
+            
+
+        </form>
+        </div>
+        <footer>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin"></i>
+          </footer>
+        
+          <!-- Copyrights Footer -->
+          <div class="copyright-footer">
+            &copy; 2024 EngineRev. All rights reserved.
+          </div>
+        </body>
+        
+        <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAjvf5ybzqm9-_b6dO8G75jHZRzNqHLjhI",
+    authDomain: "logindata-64e6a.firebaseapp.com",
+    databaseURL: "https://logindata-64e6a-default-rtdb.firebaseio.com",
+    projectId: "logindata-64e6a",
+    storageBucket: "logindata-64e6a.appspot.com",
+    messagingSenderId: "969640992562",
+    appId: "1:969640992562:web:42587a35d508afb098012b"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app); // Initialize the database
+const messagesRef = ref(db, 'logins');
+
+document.getElementById('messageForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+
+  // Get a reference to the 'logins' node in your database
+ 
+
+  // Save the user data to Firebase database
+  push(messagesRef, {
+    name: name,
+    email: email,
+    password: password
+  })
+  .then(() => {
+    alert('Login successful');
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('password').value = '';
+  })
+  .catch(error => {
+    alert('Error occurred while saving user data');
+    console.error(error);
+    
+  });
+});
+
+
+          </script>
+</html>

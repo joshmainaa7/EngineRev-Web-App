@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>EngineRevBilling</title>
+    <link rel="stylesheet" href="billaddress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js" type="module"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js" type="module"></script>
+
+    <style>
+        .button-container {
+    margin-top: 20px; /* Adjust the margin-top value to increase or decrease space */
+}
+
+    </style>
+    <nav>
+        <div class="logo">
+            EngineRev | Billing Address
+        </div>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">EXPLORE</a>
+                <div class="dropdown-content">
+                    <a href="porsche.html">Porsche</a>
+                    <a href="bmw.html">BMW</a>
+                    <a href="mclaren.html">Mclaren</a>
+                    <a href="mercedesbenz.html">Mercedes-Benz</a>
+                    <a href="rollsroyce.html">Rolls-Royce</a>
+                </div>
+            </li>
+            <li><a href="contactus.html">CONTACT US</a></li>
+            <li><a href="aboutus.html">ABOUT US</a></li>
+        </ul>
+    </nav>
+    
+    <div class="additional-text">
+        <h1>Provide Billing Address and Cart Details</h1>
+        <p>Enter your billing address and cart details to complete the purchase.</p>
+    </div>
+    
+    <div class="overlay"></div>
+    
+    <div class="form-container">
+        <form id="PurchaseForm" action="purchaseinfo.html" method="post">
+           
+            
+
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+    
+            <label for="email">Email</label>
+            <input type="text" id="emailaddress" name="emailaddress" required>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+    
+            <label for="postalCode">Postal Code</label>
+            <input type="text" id="postalCode" name="postalCode" required>
+
+            
+    
+            <label for="cartDetails">Cart Details</label>
+            <textarea id="cartDetails" name="cartDetails" rows="4" required></textarea>
+            
+            <div class="button-container">
+            <input type="submit" id="checkoutBtn" class="submit-btn" value="Proceed to Checkout">
+        </form>
+    </div>
+    </div>
+
+    <footer>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin"></i>
+    </footer>
+    
+    <div class="copyright-footer">
+        &copy; 2024 EngineRev. All rights reserved.
+    </div>
+
+  
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const cartDetailsInput = document.getElementById('cartDetails');
+
+            // Check if the 'item' parameter exists in the URL
+            if (params.has('item')) {
+                const cartItem = params.get('item');
+                cartDetailsInput.value += `\n- ${cartItem}`;
+            }
+        });
+
+        document.getElementById('PurchaseForm').addEventListener('submit', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+
+            // Redirect to the target URL
+            window.location.href = this.action; // Redirects to the action specified in the form (purchaseinfo.html)
+
+            
+        });
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js" type="module"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js" type="module"></script>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getDatabase, ref, set,push } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCHZ0HxCkBARBOf6PSkQrPnWeiWxfQy2UU",
+          authDomain: "billingaddressdata.firebaseapp.com",
+          databaseURL: "https://billingaddressdata-default-rtdb.firebaseio.com",
+          projectId: "billingaddressdata",
+          storageBucket: "billingaddressdata.appspot.com",
+          messagingSenderId: "29403807919",
+          appId: "1:29403807919:web:c2fe1688364cc5c045145a"
+        };
+      
+        // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const messagesRef = ref(db, 'Billing Address'); 
+
+        // Function to handle form submission
+        document.getElementById('PurchaseForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var fullname = document.getElementById('fullname').value;
+    var emailaddress = document.getElementById('emailaddress').value;
+    var city = document.getElementById('city').value;
+    var postalCode = document.getElementById('postalCode').value;
+    var cartDetails = document.getElementById('cartDetails').value;
+
+    // Save the data to Firebase database
+    push(messagesRef,{
+        fullname: fullname,
+        emailaddress: emailaddress,
+        city: city,
+        postalCode: postalCode,
+        cartDetails: cartDetails
+    })
+
+    .then(() => {
+        alert('Data saved successfully!');
+        document.getElementById('fullname').value = '';
+        document.getElementById('emailaddress').value = '';
+        document.getElementById('city').value = '';
+        document.getElementById('postalCode').value = '';
+        document.getElementById('cartDetails').value = '';
+    })
+    .catch((error) => {
+        alert('Error occurred while saving data.');
+        console.error(error);
+    });
+});
+
+    </script>
+</body>
+</html>

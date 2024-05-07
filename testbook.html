@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EngineRev | Book a test drive</title>
+  <link rel="stylesheet" href="Testbook.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      EngineRev | Book a Test Drive
+    </div>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">EXPLORE</a>
+        <div class="dropdown-content">
+            <a href="porsche.html">Porsche</a>
+            <a href="bmw.html">BMW</a>
+            <a href="mclaren.html">Mclaren</a>
+            <a href="mercedesbenz.html">Mercedes-Benz</a>
+            <a href="rollsroyce.html">Rolls-Royce</a>
+        </div>
+    </li>
+      <li><a href="aboutus.html">ABOUT US </a></li>
+      <li><a href="contactus.html">CONTACT US</a></li>
+      
+    </ul>
+  </nav>
+  <div class="additional-text">
+    <h1>Schedule a Test Drive for your Desired car  </h1>
+    <p>Book with Us Today to have a feel of your dream car!</p>
+  </div>
+  <div class="overlay"></div>
+  
+
+  <div class="form-container">
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder=" Name">
+
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required placeholder="Email">
+
+      <label for="car-brand">Select Car Brand:</label>
+      <select id="car-brand" name="carBrand" onchange="populateModels()">
+        <option value="Porsche">Porsche</option>
+        <option value="McLaren">McLaren</option>
+        <option value="BMW">BMW</option>
+        <option value="Mercedes-Benz">Mercedes-Benz</option>
+        <option value="Rolls-Royce">Rolls-Royce</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <label for="car-model">Select Car Model:</label>
+      <select id="car-model" name="carModel">
+        <!-- Options will be populated dynamically using JavaScript -->
+      </select>
+
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="time">Select Time:</label>
+      <input type="time" id="time" name="time" required>
+
+      <button type="button" id="book">Book</button>
+
+    </form>
+     <!-- Social Media Footer -->
+     <footer>
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin"></i>
+    </footer>
+  
+    <!-- Copyrights Footer -->
+    <div class="copyright-footer">
+      &copy; 2024 EngineRev. All rights reserved.
+    </div>
+  </div>
+
+  
+
+  <script>
+    function populateModels() {
+      var carBrandSelect = document.getElementById("car-brand");
+      var carModelSelect = document.getElementById("car-model");
+
+      // Clear existing options
+      carModelSelect.innerHTML = "";
+
+      // Get selected brand
+      var selectedBrand = carBrandSelect.value;
+
+      // Add models based on the selected brand
+      if (selectedBrand === "Porsche") {
+        var models = ["Porsche 911 GT3RS", "Porsche Panamera", "Porsche Cayenne", "Porsche 911"];
+      } else if (selectedBrand === "McLaren") {
+        var models = ["Mclaren P1", "Mclaren Artura", "Mclaren Solus GT" ,"McLaren 540C"];
+      }
+     else if (selectedBrand === "BMW") {
+        var models = ["2022 BMW M4 Competition", "2023 bmw m3 Competition", "2023 bwm x6" ,"2024 bmw m8 Competition"];
+      }
+      else if (selectedBrand === "Rolls-Royce") {
+        var models = ["Mansory Rolls Royce Ghost", "rolls royce wraith", "Rolls royce Cullinan" ,"Rolls Royce Ghost"];
+      }
+      else if (selectedBrand === "Mercedes-Benz") {
+        var models = ["2020 Mercedes-Benz GLE Coupe", "2020 Mercedes-Benz G wagon", "2022 Mercedes-Benz A180" ,"2021 Mercedes-Benz Maybach S600"];
+      }
+      // Add more conditions as needed
+
+      // Populate car models dropdown
+      for (var i = 0; i < models.length; i++) {
+        var option = document.createElement("option");
+        option.text = models[i];
+        option.value = "model" + (i + 1);
+        carModelSelect.add(option);
+      }
+    }
+  </script>
+  <script type="module">
+ // Import the functions you need from the SDKs you need
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+ // TODO: Add SDKs for Firebase products that you want to use
+ // https://firebase.google.com/docs/web/setup#available-libraries
+
+ // Your web app's Firebase configuration
+ const firebaseConfig = {
+   apiKey: "AIzaSyCxj8i3xvGexzI1A8qXTGgdIkiWjEXvQ08",
+   authDomain: "testdrivesdata.firebaseapp.com",
+   databaseURL: "https://testdrivesdata-default-rtdb.firebaseio.com",
+   projectId: "testdrivesdata",
+   storageBucket: "testdrivesdata.appspot.com",
+   messagingSenderId: "1068714141774",
+   appId: "1:1068714141774:web:c226469b1e80b00a48fb1f"
+ };
+
+ const app = initializeApp(firebaseConfig);
+ const db = getDatabase(app);
+
+ 
+ document.getElementById("book").addEventListener('click', function (e) {
+  // Retrieve input values
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const carBrand = document.getElementById("car-brand").value;
+  const carModel = document.getElementById("car-model").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+
+  // Check if any field is empty
+  if (!name || !email || !carBrand || !carModel || !date || !time) {
+    alert("Please fill out all the fields");
+    return; // Stop execution if any field is empty
+  }
+
+  // All fields are filled, proceed with the set operation
+  set(ref(db, 'user/' + name), {
+    name: name,
+    email: email,
+    carbrand: carBrand,
+    carmodel: carModel,
+    date: date,
+    time: time,
+  });
+
+  alert("Booking Successful !");
+});
+
+  
+</script>
+
+</body>
+</html>

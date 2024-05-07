@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mclaren540C.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>McLaren540C</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<label>
+  <input type="checkbox">
+  <div class="toggle">
+      <span class="top_line common"></span>
+      <span class="middle_line common"></span>
+      <span class="bottom_line common"></span>
+  </div>
+  <div class="slide">
+      <h1><br><br><br>REV UP YOUR ENGINES</h1>
+      <ul>
+        <li><a href="testbook.html"><i class="fas fa-car"></i>Book a Test Drive</a></li>
+        <li><a href="customerfeedback.html"><i class="fas fa-car"></i>Customer Feedback</a></li>
+        <li><a href="contactus.html"><i class="fas fa-car"></i>Contact Us</a></li>
+        <li><a href="enginerevlogin.html"><i class="fas fa-car"></i>Log In</a></li>
+        <li><a href="enginerevsignup.html"><i class="fas fa-car"></i>Sign Up</a></li> 
+      </ul>
+
+  </div>
+</label>
+<div class="bg"></div>
+<body>
+
+  <nav>
+    <div class="logo">
+        MCLAREN
+    </div>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">EXPLORE</a>
+          <div class="dropdown-content">
+              <a href="porsche.html">Porsche</a>
+              <a href="bmw.html">BMW</a>
+              <a href="mclaren.html">Mclaren</a>
+              <a href="mercedesbenz.html">Mercedes-Benz</a>
+              <a href="rollsroyce.html">Rolls-Royce</a>
+          </div>
+      </li>
+        <li><a href="#">CONTACT US</a></li>
+        <li><a href="#">ABOUT US</a></li>
+        
+    </ul>
+</nav>
+
+<div class="gridbox">
+<div class="col-1">
+    <!-- Slider main container -->
+<div class="swiper">
+  
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <div class="lpage">
+        <img src="images/mclaren5.jpg">
+        <div class="desc"></div>
+        </div>
+    </div>
+      <div class="swiper-slide"><img src="images/mclaren5.jpg"></div>
+      <div class="swiper-slide"><img src="images/mclaren5.jpg"></div>
+      <div class="swiper-slide"><img src="images/mclaren5.jpg"></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+  </div>
+    
+</div>
+<div class="text">
+    <h2>MCLAREN 540C <small>2018</small></h2>
+    <p> </p>
+
+    <!-- Dummy Text -->
+    <table>
+        <tr>
+            <th>Model</th>
+            <td>2018</td>
+        </tr>
+        <tr>
+            <th>Engine</th>
+            <td>3.8 l V8</td>
+        </tr>
+        <tr>
+            <th>Power</th>
+            <td>533 hp @ 7,500 rpm (397 kW)</td>
+        </tr>
+        <tr>
+            <th>Torque</th>
+            <td>398 lb·ft @ 3,500 – 6,500 rpm (540 N·m)</td>
+        </tr>
+        <tr>
+            <th>Induction</th>
+            <td>Turbocharged</td>
+        </tr>
+        <tr>
+            <th>Fuel type</th>
+            <td>Premium</td>
+        </tr>
+        <tr>
+            <th>Transmission</th>
+            <td>7-speed automatic</td>
+        </tr>
+
+        <tr>
+            <th>Availablity</th>
+            <td>In Stock</td>
+        </tr>
+        <tr>
+          <th>Price</th>
+          <td>KSH 9,322,422 (Tax Inc.)</td>
+      </tr>
+    </table>
+
+
+    <!-- Add to Cart and Buy Buttons (Right-aligned) -->
+    <div class="wrapper">
+      <a href="billingaddress.html?item=McLaren%20540c">Buy Now</a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        
+      </a>
+      <a href="testbook.html">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        test drive
+      </a>
+    </div>
+</div>
+</div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      autoplay:{
+        delay:3000,
+        disableOnInteraction: false,
+      },
+  // Optional parameters
+  
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+});
+  </script>
+ 
+  
+  
+<!--------featured cars-------->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="categories">
+<div class="small-container">
+  <h2 class="title" ><center>Exotics</center></h2>
+  <div class="cars" style="margin-top: -30px;">
+  <div class="car">
+    <div class="card">
+      <div class="imgBx">
+        <a href="mclaren540C.html"><img src="images/mclaren5.jpg"/></a>
+      </div>  
+      <div class="details">
+        <h3>McLaren 540C<br /><span>Model : 2015</span></h3>
+        <h4>Description</h4>
+        <p>
+            Bolted to the back of the 540C’s carbon-fibre tub is the same 3.8-litre twin-turbo V8.
+        </p>
+        <h4>Available Colors</h4>
+        <ul class="size">
+          <li style="background-color: rgb(102, 255, 0);"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="group">
+          <h2>KES 8,000,000</h2>
+          <br>
+          <div class="links">
+          <a href="testbook.html">Test Drive</a>
+          <a href="mclaren540C.html">See More</a>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>  
+  <div class="car">
+    <div class="card">
+      <div class="imgBx">
+        <a href="mclarenP1.html"><img src="images/mclaren6.jpg"/></a>
+      </div>  
+      <div class="details">
+        <h3>Mclaren P1<br /><span>Model : 2013</span></h3>
+        <h4>Description</h4>
+        <p>
+            The P1 has a mid-engine, rear wheel drive design that<br> used a carbon fibre monocoque 
+        </p>
+        <h4>Available Colors</h4>
+        <ul class="size">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="group">
+          <h2>KES 9,500,000</h2>
+          <br>
+          <div class="links">
+            <a href="mclarenP1.html">See More</a>
+          <a href="testbook.html">Test Drive</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>  <div class="car">
+    <div class="card">
+      <div class="imgBx">
+        <img
+          src="images/mclaren8.webp"
+        />
+      </div>  
+      <div class="details">
+        <h3>Mclaren Artura Gt873<br /><span>Model : 2023</span></h3>
+        <h4>Description</h4>
+        <p>
+            The all-aluminum engine has a bank angle of 120 degrees,<br> a world first for a production V6 engine. 
+        </p>
+        <h4>Available Colors</h4>
+        <ul class="size">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="group">
+          <h2>KES 4,500,000</h2>
+          <br>
+          <div class="links">
+            <a href="mclarenartura.html">See More</a>
+          <a href="testbook.html">Test Drive</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>  <div class="car">
+    <div class="card">
+      <div class="imgBx">
+        <a href="mclarensolusgt.html"><img src="images/mclaren7.webp"></a>
+      </div>  
+      <div class="details">
+        <h3>MCLAREN SOLUS GT<br /><span>Model : 2023</span></h3>
+        <h4>Description</h4>
+        <p>
+            The engine has individual barrel-driven throttle bodies, with gear-driven camshafts, <br>bespoke crank, intake and exhaust systems
+        </p>
+        <h4>Available Colors</h4>
+        <ul class="size">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="group">
+          <h2>KES 12,000,000</h2>
+          <br>
+          <div class="links">
+            <a href="mclarensolusgt.html">See More</a>
+          <a href="testbook.html">Test Drive</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>  
+  </div>
+</div>
+</div>
+<footer>
+  <i class="fab fa-facebook"></i>
+  <i class="fab fa-twitter"></i>
+  <i class="fab fa-instagram"></i>
+  <i class="fab fa-linkedin"></i>
+</footer>
+
+<!-- Copyrights Footer -->
+<div class="copyright-footer">
+  &copy; 2024 EngineRev. All rights reserved.
+</div>
+</body>
+</html>

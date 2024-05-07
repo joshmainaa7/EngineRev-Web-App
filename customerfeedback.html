@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EngineRev | Customer Feedback</title>
+  <link rel="stylesheet" href="customerfeedback.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+
+<body>
+  <nav>
+    <div class="logo">
+      EngineRev | Customer Feedback
+    </div>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li class="dropdown">
+          <a href="#" class="dropbtn">EXPLORE</a>
+          <div class="dropdown-content">
+              <a href="porsche.html">Porsche</a>
+              <a href="bmw.html">BMW</a>
+              <a href="mclaren.html">Mclaren</a>
+              <a href="mercedesbenz.html">Mercedes-Benz</a>
+              <a href="rollsroyce.html">Rolls-Royce</a>
+          </div>
+      </li>
+      <li><a href="contactus.html">CONTACT US</a></li>
+      <li><a href="aboutus.html">ABOUT US</a></li>
+
+    </ul>
+  </nav>
+  <div class="additional-text">
+    <h1>Hope you enjoy your new Moti ! </h1>
+    <p>We highly appreciate your feedback on how we can improve our services</p>
+  </div>
+  <div class="overlay"></div>
+  
+  <div class="form-container">
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+      <label for="rating">Rating:</label>
+      <div class="star-rating">
+        <input type="radio" id="star5" name="rating" value="5"><i class="fas fa-star"></i>
+        <input type="radio" id="star4" name="rating" value="4"><i class="fas fa-star"></i>
+        <input type="radio" id="star3" name="rating" value="3"><i class="fas fa-star"></i>
+        <input type="radio" id="star2" name="rating" value="2"><i class="fas fa-star"></i>
+        <input type="radio" id="star1" name="rating" value="1"><i class="fas fa-star"></i>
+      </div>
+
+      <button type="button" id="book">Submit</button>
+    </form>
+  </div>
+
+  <!-- Social Media Footer -->
+  <footer>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-linkedin"></i>
+  </footer>
+
+  <!-- Copyrights Footer -->
+  <div class="copyright-footer">
+    &copy; 2024 EngineRev. All rights reserved.
+  </div>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref,push,  set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBdWlVR5TGSGE3DQW3Fw1UHNfleHyxFZKk",
+      authDomain: "customerfeedback-68309.firebaseapp.com",
+      databaseURL: "https://customerfeedback-68309-default-rtdb.firebaseio.com",
+      projectId: "customerfeedback-68309",
+      storageBucket: "customerfeedback-68309.appspot.com",
+      messagingSenderId: "282351410116",
+      appId: "1:282351410116:web:0f01a649c13ad224fca291"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+ 
+
+ 
+ document.getElementById("book").addEventListener('click', function (e) {
+  // Retrieve input values
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const feedback = document.getElementById("feedback").value;
+  
+
+  // Check if any field is empty
+  if (!name || !email || !feedback ) {
+    alert("Please fill out all the fields");
+    return; // Stop execution if any field is empty
+  }
+
+ // Use push to generate a unique key
+ const newEntryRef = push(ref(db, 'user'));
+        const newEntryKey = newEntryRef.key;
+
+        // Set data using the unique key
+        set(ref(db, 'user/' + newEntryKey), {
+            name: name,
+            email: email,
+            feedback: feedback,
+        });
+
+  alert("Thanks for your Feedback!");
+});
+
+  </script>
+</body>
+</html>
