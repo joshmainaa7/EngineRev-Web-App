@@ -48,11 +48,12 @@
   /* Toggle sits flush top-left inside the nav bar */
   .toggle {
     position: fixed !important;
-    top: 8px !important;
+    top: 12px !important;
     left: 10px !important;
-    height: 44px !important;
-    width: 44px !important;
+    height: 40px !important;
+    width: 40px !important;
     z-index: 1000 !important;
+    margin-top: 0 !important;
   }
   .navpage {
     margin-left: 0 !important;
@@ -146,6 +147,36 @@
     font-size: 0.8rem !important;
   }
 
+  /* About section on brand pages (grid -> single column) */
+  .about {
+    display: block !important;
+    grid-template-columns: 1fr !important;
+  }
+  .about img {
+    min-width: 0 !important;
+    width: 85% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto 20px !important;
+    padding: 10px !important;
+  }
+  .about .col-2 {
+    min-width: 0 !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+    padding: 15px !important;
+  }
+  .about p {
+    -webkit-columns: 1 !important;
+    -moz-columns: 1 !important;
+    columns: 1 !important;
+    column-gap: 0 !important;
+    padding: 10px !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
   /* Card grid (Available Models) */
   .categories .small-container .title {
     margin: 20px auto 30px !important;
@@ -164,35 +195,56 @@
     min-width: 0 !important;
     width: 100% !important;
   }
+  /* Car cards - fix absolute positioning and 600px min-widths */
+  .categories .small-container .cars .car {
+    height: auto !important;
+    overflow: visible !important;
+    flex-direction: column !important;
+  }
+  .categories .small-container .cars .car:hover {
+    height: auto !important;
+  }
   .card {
     width: 100% !important;
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: relative !important;
   }
   .card .imgBx {
     min-width: 0 !important;
     width: 100% !important;
+    height: auto !important;
+    position: relative !important;
   }
   .card .imgBx img {
     width: 80% !important;
     max-width: 280px !important;
+    height: auto !important;
     padding: 10px !important;
+    display: block !important;
+    margin: 0 auto !important;
   }
+  /* Take details out of absolute positioning so text isn't hidden under image */
   .card .details {
+    position: relative !important;
+    left: auto !important;
     min-width: 0 !important;
     width: 100% !important;
     padding: 15px !important;
     box-sizing: border-box !important;
     height: auto !important;
-    min-height: 300px !important;
+    min-height: 0 !important;
   }
   .card .details h3 {
     font-size: 0.95em !important;
-    margin-top: 5px !important;
+    margin-top: 10px !important;
   }
   .card .details h4 {
     font-size: 0.8em !important;
   }
   .card .details p {
-    font-size: 0.7em !important;
+    font-size: 0.75em !important;
   }
   .card .details .group {
     flex-direction: column !important;
