@@ -13,18 +13,24 @@
     width: 100% !important;
   }
 
-  /* Nav - center the logo, leave left space for the toggle button */
+  /* Nav - full width, padding-left clears the toggle, logo centered */
   nav {
-    justify-content: center !important;
-    padding: 10px 60px 10px 60px !important;
-    width: calc(100% - 120px) !important;
-    flex-wrap: nowrap !important;
+    position: fixed !important;
     top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 10px 15px 10px 65px !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    box-sizing: border-box !important;
+    z-index: 998 !important;
   }
   .logo {
     margin: 0 auto !important;
     padding: 0 !important;
     left: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
   }
   .logo img, nav .logo img {
     width: 45px !important;
@@ -39,12 +45,14 @@
   nav ul {
     display: none !important;
   }
-  /* Align toggle to sit inside the nav bar height */
+  /* Toggle sits flush top-left inside the nav bar */
   .toggle {
-    top: 10px !important;
+    position: fixed !important;
+    top: 8px !important;
     left: 10px !important;
     height: 44px !important;
     width: 44px !important;
+    z-index: 1000 !important;
   }
   .navpage {
     margin-left: 0 !important;
