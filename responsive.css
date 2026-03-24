@@ -196,9 +196,11 @@
   }
 
   /* Homepage layouts */
-  .row {
+  .row, .row-2 {
     flex-direction: column !important;
     align-items: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .col-2, .col-3, .col-4, .col-5 {
     flex-basis: 100% !important;
@@ -208,8 +210,18 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+  /* Fixed-width col-5 needs special treatment */
+  .col-5 {
+    width: 42% !important;
+    flex-basis: 42% !important;
+  }
+
+  /* Nav container padding */
   .container {
     flex-direction: column !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    position: relative !important;
   }
 
   /* Brand logo images in featured section */
@@ -219,10 +231,37 @@
     padding: 5px !important;
   }
 
-  /* Hero/offer sections - reduce padding so they don't look like part of the nav */
-  .offer, .offer-2, .offer-3 {
+  /* Hero/offer sections - reduce padding */
+  .offer, .offer-3 {
     padding: 25px 0 !important;
     margin-top: 70px !important;
+  }
+  .offer-2 {
+    padding: 25px 0 20px !important;
+    margin-top: 70px !important;
+  }
+  /* Fix massive 600px right padding on offer-2 content */
+  .offer-2 .col-2, .offer-2 .small-container .col-2 {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+  .offer-2 .small-container {
+    flex-direction: column !important;
+  }
+
+  /* Fix hardcoded left/bottom offsets on buttons that cause overflow */
+  .wrapper-2 a {
+    left: 0 !important;
+    position: relative !important;
+  }
+  .wrapper-3 a {
+    left: 0 !important;
+    bottom: auto !important;
+    position: relative !important;
+  }
+  .wrapper a {
+    left: 0 !important;
+    margin-right: 0 !important;
   }
 
   /* Search bar */
