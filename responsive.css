@@ -204,9 +204,25 @@
     flex-basis: 100% !important;
     width: 90% !important;
     margin-bottom: 20px !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .container {
     flex-direction: column !important;
+  }
+
+  /* Brand logo images in featured section */
+  .col-4 img {
+    width: 80px !important;
+    max-width: 100px !important;
+    padding: 5px !important;
+  }
+
+  /* Hero/offer sections - reduce padding so they don't look like part of the nav */
+  .offer, .offer-2, .offer-3 {
+    padding: 25px 0 !important;
+    margin-top: 70px !important;
   }
 
   /* Search bar */
@@ -318,6 +334,12 @@
   .bottom-image {
     width: 80% !important;
     max-width: 200px !important;
+  }
+
+  /* Disable hover scale on mobile (causes overflow/layout issues on touch) */
+  .grow img:hover {
+    transform: none !important;
+    -webkit-transform: none !important;
   }
 
   /* Footer social icons */
