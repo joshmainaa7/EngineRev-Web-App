@@ -306,6 +306,18 @@
     width: 80% !important;
     max-width: 200px !important;
   }
+
+  /* Footer social icons */
+  footer i {
+    font-size: 1.2rem !important;
+    margin: 0 6px !important;
+  }
+
+  /* Slide menu icons */
+  ul li a i {
+    width: 24px !important;
+    font-size: 0.9rem !important;
+  }
 }
 
 /* Small phone - 380px and below */
@@ -330,5 +342,17 @@
     left: 5px !important;
     height: 35px !important;
     width: 40px !important;
+  }
+
+  /* Footer social icons - phone */
+  footer i {
+    font-size: 1rem !important;
+    margin: 0 5px !important;
+  }
+
+  /* Slide menu icons - phone */
+  ul li a i {
+    width: 20px !important;
+    font-size: 0.85rem !important;
   }
 }
