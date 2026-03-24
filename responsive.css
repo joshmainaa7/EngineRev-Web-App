@@ -24,6 +24,15 @@
     left: 0 !important;
     padding: 5px !important;
   }
+  /* Constrain nav logo image to a fixed small size */
+  .logo img, nav .logo img {
+    width: 45px !important;
+    height: 45px !important;
+    left: 0 !important;
+    position: relative !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+  }
   nav ul {
     display: none !important;
   }
@@ -239,6 +248,10 @@
   h2 {
     font-size: 22px !important;
   }
+  h6 {
+    font-size: 26px !important;
+    padding-left: 15px !important;
+  }
   .heading-color, .heading-color-2 {
     padding-left: 15px !important;
     font-size: 24px !important;
@@ -325,11 +338,18 @@
   .logo {
     font-size: 14px !important;
   }
+  .logo img, nav .logo img {
+    width: 38px !important;
+    height: 38px !important;
+  }
   .text h2 {
     font-size: 18px !important;
   }
   h1 {
     font-size: 16px !important;
+  }
+  h6 {
+    font-size: 18px !important;
   }
   .heading-color, .heading-color-2 {
     font-size: 20px !important;
