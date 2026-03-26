@@ -449,12 +449,40 @@
     padding: 15px !important;
   }
 
+  /* Form pages body - allow scroll, don't clip tall forms */
+  body {
+    height: auto !important;
+    min-height: 100vh !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-top: 70px !important;
+  }
+
+  /* Hero text on form pages - massive padding/margin causing overflow */
+  .additional-text {
+    margin-top: 20px !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 15px 20px !important;
+    font-size: 14px !important;
+    text-align: center !important;
+  }
+  .additional-text h1 {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+  }
+  .additional-text p {
+    font-size: 13px !important;
+  }
+
   /* Login/Signup - .form-container has margin-left:200px width:300px */
   .form-container {
     margin-left: auto !important;
     margin-right: auto !important;
     width: 88% !important;
     max-width: 360px !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
   }
 
   /* col-1 on individual car pages (bmwM, GLE, GT3RS, mclaren540C) has margin:100px padding-left:250px */
