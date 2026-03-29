@@ -449,40 +449,78 @@
     padding: 15px !important;
   }
 
-  /* Form pages body - allow scroll, don't clip tall forms */
+  /* All form pages: switch body from flex-center to block so form stacks correctly */
   body {
+    display: block !important;
     height: auto !important;
     min-height: 100vh !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
     padding-top: 70px !important;
   }
 
-  /* Hero text on form pages - massive padding/margin causing overflow */
+  /* Overlay covers page - keep it but don't let it interfere with form elements */
+  .overlay {
+    padding: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Hero text above form - remove massive margin/padding, make it readable */
   .additional-text {
-    margin-top: 20px !important;
-    margin-right: 0 !important;
-    margin-left: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin: 15px auto !important;
     padding: 15px 20px !important;
-    font-size: 14px !important;
     text-align: center !important;
+    font-size: 14px !important;
   }
   .additional-text h1 {
     font-size: 20px !important;
-    margin-bottom: 8px !important;
+    margin-bottom: 6px !important;
   }
   .additional-text p {
     font-size: 13px !important;
   }
 
-  /* Login/Signup - .form-container has margin-left:200px width:300px */
+  /* Form container - center it, full width */
   .form-container {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 88% !important;
-    max-width: 360px !important;
-    margin-top: 15px !important;
-    margin-bottom: 20px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    display: block !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    margin: 10px auto 40px !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Purchase info page */
+  .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 20px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    min-height: auto !important;
+  }
+  .container form {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 90% !important;
+    max-width: 400px !important;
+    margin: 20px auto !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+  }
+  /* Credit card visual - remove 600px margin, make it fit */
+  .container .card-container {
+    position: relative !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    width: 90% !important;
+    max-width: 340px !important;
+    height: 200px !important;
+    padding: 0 !important;
+    margin: 20px auto !important;
   }
 
   /* col-1 on individual car pages (bmwM, GLE, GT3RS, mclaren540C) has margin:100px padding-left:250px */
