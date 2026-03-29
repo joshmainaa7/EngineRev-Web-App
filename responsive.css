@@ -544,6 +544,11 @@
     -webkit-transform: none !important;
   }
 
+  /* Star rating on feedback page */
+  .star-rating i {
+    font-size: 1.4rem !important;
+  }
+
   /* Footer social icons */
   footer i {
     font-size: 1.2rem !important;
